@@ -4,12 +4,14 @@ package projet.dsi31.films_dsi31.Repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import projet.dsi31.films_dsi31.Models.Film;
 import projet.dsi31.films_dsi31.Models.Genre;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@RepositoryRestResource(path = "rest")
 public interface FilmRepository extends JpaRepository<Film, Long> {
 
     List<Film> findByFilmTitleContainingIgnoreCase(String filmTitle); // ittaffi il upper case
@@ -30,7 +32,7 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     @Query("select f from Film f where f.genre = :genre") // mafhimtich lweh aslan query here for there is no condition
     List<Film> findByGenre(@Param("genre") Genre genre);
 
-    List<Film> findByGenre_GenreID(Long genreID); // il "_" so it's clearer
+    List<Film> findByGenreGenreID(Long genreID); // il "_" so it's clearer
 
     List<Film> findByOrderByFilmTitleAsc();
 

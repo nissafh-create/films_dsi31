@@ -108,7 +108,7 @@ class FilmsDsi31ApplicationTests {
     @Test
     public void findByGenreGenreID()
     {
-        List<Film> films = filmRepository.findByGenre_GenreID(2L);
+        List<Film> films = filmRepository.findByGenreGenreID(2L);
 
         for (Film f : films)
         {

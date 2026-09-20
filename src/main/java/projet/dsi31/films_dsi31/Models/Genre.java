@@ -1,5 +1,6 @@
 package projet.dsi31.films_dsi31.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,6 +24,7 @@ public class Genre {
     @OneToMany(mappedBy = "genre")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore // sinon to93ad loop puisque il fil calls genre and genre calls film
     private List<Film> films;
 
 

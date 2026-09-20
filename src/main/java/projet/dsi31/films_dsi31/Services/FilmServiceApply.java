@@ -1,6 +1,8 @@
 package projet.dsi31.films_dsi31.Services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import projet.dsi31.films_dsi31.Models.Film;
 import projet.dsi31.films_dsi31.Models.Genre;
 import projet.dsi31.films_dsi31.Repositories.FilmRepository;
@@ -8,14 +10,11 @@ import projet.dsi31.films_dsi31.Repositories.FilmRepository;
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class FilmServiceApply implements FilmService{
 
-    @Autowired
     private final FilmRepository filmRepository; // final bech needed to initialize and can't be updated
-
-    public FilmServiceApply(FilmRepository filmRepository) {
-        this.filmRepository = filmRepository;
-    }
 
     @Override
     public Film saveFilm(Film f) {
@@ -76,8 +75,8 @@ public class FilmServiceApply implements FilmService{
     }
 
     @Override
-    public List<Film> findByGenre_GenreID(Long genreID) {
-        return filmRepository.findByGenre_GenreID(genreID);
+    public List<Film> findByGenreGenreID(Long genreID) {
+        return filmRepository.findByGenreGenreID(genreID);
     }
 
     @Override

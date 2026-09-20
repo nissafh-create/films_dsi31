@@ -1,11 +1,13 @@
 package projet.dsi31.films_dsi31.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import projet.dsi31.films_dsi31.Models.Genre;
 import projet.dsi31.films_dsi31.Repositories.GenreRepository;
 
 import java.util.List;
 
+@Service
 public class GenreServiceApply implements GenreService {
 
     @Autowired

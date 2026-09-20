@@ -35,7 +35,7 @@ public interface FilmService {
             projet.dsi31.films_dsi31.Models.Genre genre
     );
 
-    List<Film> findByGenre_GenreID(Long genreID);
+    List<Film> findByGenreGenreID(Long genreID);
 
     List<Film> findByOrderByFilmTitleAsc();
 
