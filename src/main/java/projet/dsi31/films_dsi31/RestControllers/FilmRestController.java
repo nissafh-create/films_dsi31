@@ -1,7 +1,6 @@
 package projet.dsi31.films_dsi31.RestControllers;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import projet.dsi31.films_dsi31.Models.Film;
 import projet.dsi31.films_dsi31.Services.FilmService;

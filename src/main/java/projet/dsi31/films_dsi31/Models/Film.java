@@ -8,7 +8,7 @@ import lombok.ToString;
 
 import java.time.LocalDate; // khir, modern and represents ../../....
 
-@Data
+@Data // taba3 lambok: library automatically create certain methods at compile time
 @NoArgsConstructor
 @Entity
 public class Film {
@@ -24,18 +24,16 @@ public class Film {
 
     @ManyToOne
     @JoinColumn(name = "genreID")
-    @ToString.Exclude // 5ater reverse elationship donc to93ad dima fi loop
+    @ToString.Exclude // 5ater reverse relationship donc to93ad dima fi loop
     @EqualsAndHashCode.Exclude
     private Genre genre;
 
-
-    //constructor
-
+    // constructor
     public Film(String filmTitle,
-                String filmDescription,
-                LocalDate filmReleaseDate,
-                Integer filmDuration,
-                Genre genre) {
+            String filmDescription,
+            LocalDate filmReleaseDate,
+            Integer filmDuration,
+            Genre genre) {
         this.filmTitle = filmTitle;
         this.filmDescription = filmDescription;
         this.filmReleaseDate = filmReleaseDate;
@@ -43,4 +41,3 @@ public class Film {
         this.genre = genre;
     }
 }
-

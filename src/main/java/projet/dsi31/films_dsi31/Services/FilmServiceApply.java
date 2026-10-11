@@ -1,7 +1,6 @@
 package projet.dsi31.films_dsi31.Services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projet.dsi31.films_dsi31.Models.Film;
 import projet.dsi31.films_dsi31.Models.Genre;
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class FilmServiceApply implements FilmService{
+public class FilmServiceApply implements FilmService {
 
     private final FilmRepository filmRepository; // final bech needed to initialize and can't be updated
 
@@ -59,18 +58,15 @@ public class FilmServiceApply implements FilmService{
     @Override
     public List<Film> findByTitleDuration(
             String title,
-            Integer duration
-    ) {
+            Integer duration) {
         return filmRepository.findByTitleDuration(
                 title,
-                duration
-        );
+                duration);
     }
 
     @Override
     public List<Film> findByGenre(
-            Genre genre
-    ) {
+            Genre genre) {
         return filmRepository.findByGenre(genre);
     }
 
@@ -89,4 +85,3 @@ public class FilmServiceApply implements FilmService{
         return filmRepository.FilmByTitleAsc_DateDesc();
     }
 }
-
