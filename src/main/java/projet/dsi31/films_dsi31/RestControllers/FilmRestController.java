@@ -32,7 +32,6 @@ public class FilmRestController {
         return filmService.saveFilm(f);
     }
 
-
     @PutMapping("/{id}") // better than putting the id in json
     public Film updateFilm(@PathVariable("id") Long id, @RequestBody Film f) {
         f.setFilmID(id);
@@ -47,5 +46,10 @@ public class FilmRestController {
     @GetMapping("/filmsGenre/{idGenre}")
     public List<Film> getFilmByGenre(@PathVariable("idGenre") Long idGenre) {
         return filmService.findByGenreGenreID(idGenre);
+    }
+
+    @GetMapping("/filmsByName/{title}")
+    public List<Film> findByFilmTitleContains(@PathVariable("title") String title) {
+        return filmService.findByFilmTitleContainingIgnoreCase(title);
     }
 }

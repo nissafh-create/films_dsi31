@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import projet.dsi31.films_dsi31.Models.Film;
+import projet.dsi31.films_dsi31.Models.Genre;
 
 @SpringBootApplication
 public class FilmsDsi31Application implements CommandLineRunner {
@@ -20,6 +21,6 @@ public class FilmsDsi31Application implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) throws Exception {
-        repositoryRestConfiguration.exposeIdsFor(Film.class);
+        repositoryRestConfiguration.exposeIdsFor(Film.class, Genre.class);
     }
 }
