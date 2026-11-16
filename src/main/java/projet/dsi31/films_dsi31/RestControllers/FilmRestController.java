@@ -13,37 +13,34 @@ import java.util.List;
 @AllArgsConstructor
 public class FilmRestController {
 
-    //@Autowired
     private final FilmService filmService;
 
-    //@RequestMapping(method = RequestMethod.GET)
-    @GetMapping
-    public List<Film> getAllFilms(){
+    @RequestMapping(path = "all", method = RequestMethod.GET)
+    public List<Film> getAllFilms() {
         return filmService.getAllFilms();
     }
 
-    @GetMapping("/{idFilm}")
-    public Film getFilmById(@PathVariable("idFilm") Long id) {
+    @RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
+    public Film getFilmById(@PathVariable("id") Long id) {
         return filmService.getFilm(id);
     }
 
-    @PostMapping
+    @RequestMapping(path = "/addfilm", method = RequestMethod.POST)
     public Film createFilm(@RequestBody Film f) {
         return filmService.saveFilm(f);
     }
 
-    @PutMapping("/{id}") // better than putting the id in json
-    public Film updateFilm(@PathVariable("id") Long id, @RequestBody Film f) {
-        f.setFilmID(id);
+    @RequestMapping(path = "/updatefilm", method = RequestMethod.PUT)
+    public Film updateFilm(@RequestBody Film f) {
         return filmService.updateFilm(f);
     }
 
-    @DeleteMapping("/{id}")
+    @RequestMapping(value = "/delfilm/{id}", method = RequestMethod.DELETE)
     public void deleteFilm(@PathVariable("id") Long id) {
         filmService.deleteFilmById(id);
     }
 
-    @GetMapping("/filmsGenre/{idGenre}")
+    @RequestMapping(value = "/filmsGenre/{idGenre}", method = RequestMethod.GET)
     public List<Film> getFilmByGenre(@PathVariable("idGenre") Long idGenre) {
         return filmService.findByGenreGenreID(idGenre);
     }
